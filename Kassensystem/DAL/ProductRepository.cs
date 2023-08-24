@@ -4,28 +4,47 @@ namespace Kassensystem.DAL
 {
     public class ProductRepository : IProductRepository
     {
-        
+        private const string ProductJson = @"C:\Users\dustin.dyckmanns\source\repos\Kassensystem\Kassensystem\Products.json";
         public void DeleteProduct(int productId)
         {
             throw new NotImplementedException();
         }
 
-        public Product GetProductById(int productId)
+        public Product? GetProductById(int productId)
         {
-            throw new NotImplementedException();
+            string text = File.ReadAllText(ProductJson);
+            var products = JsonSerializer.Deserialize<IEnumerable<Product>>(text);
+            foreach(Product product in products)
+            {
+                if(product.ProductId== productId)
+                {
+                    return product;
+                }
+            }
+            return null;
+            
         }
 
         public IEnumerable<Product> GetProducts()
         {
-            string text = File.ReadAllText(@"C:\Users\dustin.dyckmanns\source\repos\Kassensystem\Kassensystem\Products.json");
+            string text = File.ReadAllText(ProductJson);
             var products = JsonSerializer.Deserialize<IEnumerable<Product>>(text);
             return products;
-            //throw new NotImplementedException();
+            
         }
 
         public void InsertProduct(Product product)
         {
-            throw new NotImplementedException();
+            string text = File.ReadAllText(ProductJson);
+            var products = JsonSerializer.Deserialize<IList<Product>>(text);
+            if(products == null) 
+            {
+                products = new List<Product>();
+            }
+            products.Add(product);
+            string jsonString = JsonSerializer.Serialize(products);
+            File.WriteAllText(ProductJson, jsonString);
+            //throw new NotImplementedException();
         }
 
         public void UpdateProduct(Product product)

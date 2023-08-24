@@ -20,5 +20,16 @@ namespace Kassensystem.Controllers
             return Ok(_productRepository.GetProducts());
         }
 
+        [HttpGet(nameof(GetProductById))]
+        public IActionResult GetProductById(int productId)
+        {
+            return Ok(_productRepository.GetProductById(productId));
+        }
+        [HttpPost(nameof(InsertProduct))]
+        public IActionResult InsertProduct(Product product)
+        {
+            _productRepository.InsertProduct(product);
+            return Ok();
+        }
     }
 }
