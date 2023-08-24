@@ -19,5 +19,6 @@ namespace Kassensystem.Controllers
         {
             return Ok(_productRepository.GetProducts());
         }
+
     }
 }

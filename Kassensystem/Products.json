@@ -1,3 +1,21 @@
-{
-  
-}
+[
+    {
+      "ProductId": 1,
+      "Price": 0.89,
+      "Name": "Sandwich-Toast Vollkorn",
+      "Description": "Weizenvollkorntoast mit 58% Weizenvollkornmehl"
+    },
+    {
+      "ProductId": 2,
+      "Price": 1.79,
+      "Name": "Delikatess-Salami",
+      "Description": "Marke: ja!"
+    },
+    {
+      "ProductId":3,
+      "Price":1.79,
+      "Name": "Schmelzkäsescheiben Toast",
+      "Description": "Marke: ja!"
+    }
+  ]
+
