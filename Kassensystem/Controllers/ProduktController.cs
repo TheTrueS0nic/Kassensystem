@@ -31,5 +31,11 @@ namespace Kassensystem.Controllers
             _productRepository.InsertProduct(product);
             return Ok();
         }
+        [HttpDelete(nameof(DeleteProduct))]
+        public IActionResult DeleteProduct(int productId)
+        {
+            _productRepository.DeleteProduct(productId);
+            return Ok();
+        }
     }
 }

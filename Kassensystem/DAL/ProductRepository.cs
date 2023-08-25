@@ -7,7 +7,18 @@ namespace Kassensystem.DAL
         private const string ProductJson = @"C:\Users\dustin.dyckmanns\source\repos\Kassensystem\Kassensystem\Products.json";
         public void DeleteProduct(int productId)
         {
-            throw new NotImplementedException();
+            string text = File.ReadAllText(ProductJson);
+            var products = JsonSerializer.Deserialize<IList<Product>>(text);
+            foreach (Product product in products)
+            {
+                if (product.ProductId == productId)
+                {
+                    products.Remove(product);
+                    break;
+                }
+            }
+            string jsonString = JsonSerializer.Serialize(products);
+            File.WriteAllText(ProductJson, jsonString);
         }
 
         public Product? GetProductById(int productId)
