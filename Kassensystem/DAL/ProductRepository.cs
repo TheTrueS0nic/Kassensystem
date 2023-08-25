@@ -60,7 +60,19 @@ namespace Kassensystem.DAL
 
         public void UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            string text = File.ReadAllText(ProductJson);
+            var products = JsonSerializer.Deserialize<IList<Product>>(text);
+            foreach (Product product_ in products)
+            {
+                if (product_.ProductId == product.ProductId)
+                {
+                    products.Remove(product_);
+                    products.Add(product);
+                    break;
+                }
+            }
+            string jsonString = JsonSerializer.Serialize(products);
+            File.WriteAllText(ProductJson, jsonString);
         }
     }
 }

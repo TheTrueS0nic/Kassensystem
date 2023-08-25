@@ -37,5 +37,11 @@ namespace Kassensystem.Controllers
             _productRepository.DeleteProduct(productId);
             return Ok();
         }
+        [HttpPatch(nameof(UpdateProduct))]
+        public IActionResult UpdateProduct(Product product)
+        {
+            _productRepository.UpdateProduct(product);
+            return Ok();
+        }
     }
 }
