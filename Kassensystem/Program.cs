@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DbContext, ProductDbContext>(opts => 
     opts.UseSqlite(builder.Configuration.GetConnectionString("Key")));
 builder.Services.AddScoped<IProductRepository, DBProductRepository>();
+builder.Services.AddScoped<IServiceLogger, FileServiceLogger>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
