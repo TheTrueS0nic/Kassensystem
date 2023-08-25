@@ -35,7 +35,8 @@ namespace Kassensystem.DAL
 
         public void UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<Product>().Update(product);
+            _dbContext.SaveChanges();
         }
     }
 }
