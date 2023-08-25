@@ -2,7 +2,7 @@
 
 namespace Kassensystem.DAL
 {
-    public class ProductRepository : IProductRepository
+    public class JSONProductRepository : IProductRepository
     {
         private const string ProductJson = @"C:\Users\dustin.dyckmanns\source\repos\Kassensystem\Kassensystem\Products.json";
         public void DeleteProduct(int productId)

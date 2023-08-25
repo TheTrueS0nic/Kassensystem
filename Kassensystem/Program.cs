@@ -1,11 +1,14 @@
 using Kassensystem.DAL;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddDbContext<DbContext, ProductDbContext>(opts => 
+    opts.UseSqlite(builder.Configuration.GetConnectionString("Key")));
+builder.Services.AddScoped<IProductRepository, DBProductRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
