@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Kassensystem.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kassensystem.DAL
 {

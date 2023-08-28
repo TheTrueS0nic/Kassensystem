@@ -1,4 +1,6 @@
-﻿namespace Kassensystem.DAL
+﻿using Kassensystem.Entity;
+
+namespace Kassensystem.DAL
 {
     public interface IProductRepository
     {

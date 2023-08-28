@@ -1,4 +1,5 @@
 ﻿using Kassensystem.DAL;
+using Kassensystem.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kassensystem.Controllers

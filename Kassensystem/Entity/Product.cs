@@ -1,4 +1,4 @@
-﻿namespace Kassensystem.DAL
+﻿namespace Kassensystem.Entity
 {
     public class Product
     {
@@ -6,7 +6,7 @@
         public double Price { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        
+
 
     }
 }

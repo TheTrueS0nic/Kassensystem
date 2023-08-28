@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using Kassensystem.Entity;
 
 namespace Kassensystem.DAL
 {
